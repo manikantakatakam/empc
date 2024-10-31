@@ -27,13 +27,32 @@ public class EmployeeService {
     }
 
     public Employee updateEmployee(String id, Employee employeeDetails) {
-        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee not found"));
+        Employee employee = employeeRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Employee not found"));
+    
+        // Update personal information
         employee.setName(employeeDetails.getName());
+        employee.setEmail(employeeDetails.getEmail());
+        employee.setPassword(employeeDetails.getPassword()); // Be cautious with updating passwords; ensure proper security.
+        employee.setPhone(employeeDetails.getPhone());
+        employee.setAddress(employeeDetails.getAddress());
+        employee.setProfilePhotoUrl(employeeDetails.getProfilePhotoUrl());
+    
+        // Update job-related information
         employee.setDepartment(employeeDetails.getDepartment());
         employee.setPosition(employeeDetails.getPosition());
         employee.setSalary(employeeDetails.getSalary());
+        employee.setJoiningDate(employeeDetails.getJoiningDate());
+        employee.setSkills(employeeDetails.getSkills());
+    
+        // Update administrative information
+        employee.setStatus(employeeDetails.getStatus());
+        employee.setManagerId(employeeDetails.getManagerId());
+        employee.setProjects(employeeDetails.getProjects());
+    
         return employeeRepository.save(employee);
     }
+        
 
     public void deleteEmployee(String id) {
         employeeRepository.deleteById(id);
