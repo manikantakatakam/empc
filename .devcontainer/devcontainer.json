@@ -1,8 +1,0 @@
-{
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/devcontainers/features/java:17": {},
-    "ghcr.io/devcontainers-extra/features/springboot-sdkman:2": {},
-    "ghcr.io/devcontainers-extra/features/maven-sdkman:2": {}
-  }
-}

@@ -20,10 +20,10 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    @GetMapping("/my")
-    public String getHtml() {
-        return "index"; // This refers to yourfile.html in templates
-    }   
+    // @GetMapping("/my")
+    // public String getHtml() {
+    //     return "index"; // This refers to yourfile.html in templates
+    // }   
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable String id) {
