@@ -14,6 +14,10 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    public Employee getEmployeeByEmail(String email) {
+        return employeeRepository.findByEmail(email);
+    }
+
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }

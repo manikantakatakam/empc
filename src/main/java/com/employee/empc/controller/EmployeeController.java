@@ -20,6 +20,17 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
+    @GetMapping("/getByEmail")
+    public Employee getEmployeeByEmail(@RequestParam String email) {
+        Employee employee = employeeService.getEmployeeByEmail(email);
+        
+        if (employee != null) {
+            return employee;
+        } else {
+            throw new RuntimeException("Employee with email " + email + " not found");
+        }
+    }
+
     // @GetMapping("/my")
     // public String getHtml() {
     //     return "index"; // This refers to yourfile.html in templates
