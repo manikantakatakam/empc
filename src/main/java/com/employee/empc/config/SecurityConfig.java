@@ -14,7 +14,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable()) // Disables CSRF
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/employees**").permitAll() // Allows access to /api/employees without authentication
+                .requestMatchers("/**").permitAll() // Allows access to /api/employees without authentication
                 .anyRequest().authenticated() // Secures all other endpoints
             )
             .httpBasic(); // Enables basic HTTP authentication
