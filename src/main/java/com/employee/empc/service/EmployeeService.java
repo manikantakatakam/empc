@@ -1,7 +1,9 @@
 package com.employee.empc.service;
 
 import com.employee.empc.model.Employee;
+import com.employee.empc.model.Holidays;
 import com.employee.empc.repository.EmployeeRepository;
+import com.employee.empc.repository.HolidayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,5 +62,21 @@ public class EmployeeService {
 
     public void deleteEmployee(String id) {
         employeeRepository.deleteById(id);
+    }
+
+    //holiday data adding and fetching
+    @Autowired
+    private HolidayRepository holidayRepository;
+
+    public Holidays createHoliday(Holidays holidays){
+        return holidayRepository.save(holidays);
+    }
+
+    public List<Holidays> getAllHolidays() {
+        return holidayRepository.findAll();
+    }
+
+    public void deleteHoliday(String id) {
+        holidayRepository.deleteById(id);
     }
 }
